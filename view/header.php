@@ -38,6 +38,12 @@
       <li class="nav-item">
         <a class="nav-link" href="add.php">Ajout d'un étudiant</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="upload.php">Upload</a>
+      </li>
+      <li id="signup" class="nav-item">
+        <a class="nav-link" href="sign_up.php">Sign Up</a>
+      </li>
     </ul>
   </div>
 </nav>

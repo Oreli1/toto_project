@@ -21,5 +21,5 @@
     <?php endforeach ?>
   </tbody>
 </table>
-<a href=" <?=  'list.php?page=' .(($offset>=1) ? 1 : ($offset-1))?>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Précédent</a>
+<a href=" <?=  'list.php?page=' .(($offset>=2) ? 1 : ($offset-1))?>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Précédent</a>
 <a href=" <?= 'list.php?page=' .($offset+1)?>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Suivant</a>
