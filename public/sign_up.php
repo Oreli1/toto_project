@@ -53,22 +53,44 @@ if (isset($_POST['email'],$_POST['Password1'],$_POST['Password2'])) {
     $formOk = false;
   }
   if ($formOk) {
+    //requête pour adresse mail
     $sql='
-    INSERT INTO users (`usr_email`,`usr_password`)
-    VALUES (:email, :password)
+    SELECT usr_email
+    FROM users
+    WHERE usr_email = :email
     ';
-    //clef de cryptage
-    $key= 'ckrypT';
+    //var_dump($email);
     $pdoStatement = $pdo->prepare($sql);
-    //crypter le mot de passe
-    $crypt = md5($Password1.$key);
     $pdoStatement->bindValue(':email', $email, PDO::PARAM_STR);
-    $pdoStatement->bindValue(':password', $crypt, PDO::PARAM_STR);
-    if ($pdoStatement->execute() === false) {
-    	print_r($pdoStatement->errorInfo());
-    	exit;
-    $userOk=1;
-    echo 'formulaire OK';
+    $pdoStatement->execute();
+    $results=$pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+    //print_r($results);
+    //exit;
+    if(empty($results)){
+      // requête pour formulaire ok
+      $sql='
+      INSERT INTO users (`usr_email`,`usr_password`)
+      VALUES (:email, :password)
+      ';
+
+      //clef de cryptage
+      //$key= 'ckrypT';
+
+      $pdoStatement = $pdo->prepare($sql);
+
+      //crypter le mot de passe
+      $crypt = password_hash($Password1, PASSWORD_BCRYPT);
+
+      $pdoStatement->bindValue(':email', $email, PDO::PARAM_STR);
+      $pdoStatement->bindValue(':password',$crypt, PDO::PARAM_STR);
+      if ($pdoStatement->execute() === false) {
+        print_r($pdoStatement->errorInfo());
+        exit;
+        $userOk=1;
+        echo 'formulaire OK';
+      }
+    }else{
+      $errorList[]='Email existe déja';
     }
   }
 }

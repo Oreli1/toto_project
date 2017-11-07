@@ -44,6 +44,9 @@
       <li id="signup" class="nav-item">
         <a class="nav-link" href="sign_up.php">Sign Up</a>
       </li>
+      <li id="signin" class="nav-item">
+        <a class="nav-link" href="sign_in.php">Sign Up</a>
+      </li>
     </ul>
   </div>
 </nav>
