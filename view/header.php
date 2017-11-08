@@ -29,24 +29,45 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+      <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin' && $_SESSION['role'] == 'user') : ?>
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Toutes les sessions <span class="sr-only">(current)</span></a>
       </li>
+      <?php endif; ?>
+      <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin' && $_SESSION['role'] == 'user') : ?>
       <li class="nav-item">
         <a class="nav-link" href="list.php">Tous les étudiants</a>
       </li>
+      <?php endif; ?>
+      <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') : ?>
       <li class="nav-item">
         <a class="nav-link" href="add.php">Ajout d'un étudiant</a>
       </li>
+    <?php endif; ?>
+    <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin' && $_SESSION['role'] == 'user') : ?>
       <li class="nav-item">
         <a class="nav-link" href="upload.php">Upload</a>
       </li>
+      <?php endif; ?>
+      <?php if(empty($_SESSION['Id'])) : ?>
       <li id="signup" class="nav-item">
         <a class="nav-link" href="sign_up.php">Sign Up</a>
       </li>
       <li id="signin" class="nav-item">
-        <a class="nav-link" href="sign_in.php">Sign Up</a>
+        <a class="nav-link" href="sign_in.php">Sign In</a>
       </li>
+      <?php endif; ?>
+      <?php if(isset($_SESSION['Id'])) : ?>
+      <li id="user" class="nav-item">
+        <span class="nav-link"><?= $idIp ?></span>
+      <?php endif; ?>
+      </li>
+    <?php if(!empty($_SESSION['Id'])) : ?>
+      <li id="user" class="nav-item">
+        <a class="nav-link" href="disconnect.php">Sign Out</a>
+      </li>
+    <?php endif; ?>
+
     </ul>
   </div>
 </nav>

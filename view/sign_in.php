@@ -2,9 +2,7 @@
   <?php foreach($errorList as $key=>$value) : ?>
     <p><?php echo $value; ?></p>
   <?php endforeach ; ?>
-  <?php  else : ?>
-  <p><?php echo $idIp; ?></p>
-<?php endif; ?>
+  <?php endif; ?>
 
 
 <form action="" method="post" enctype="multipart/form-data">

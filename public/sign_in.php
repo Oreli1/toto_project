@@ -56,7 +56,7 @@ if (isset($_POST['mail'],$_POST['Password'])) {
     //exit;
   }if(!empty($results1)){
     $sql='
-    SELECT usr_password
+    SELECT usr_password, usr_role
     FROM users
     WHERE usr_id = :id
     ';
@@ -70,7 +70,10 @@ if (isset($_POST['mail'],$_POST['Password'])) {
     $ip_address = $_SERVER['REMOTE_ADDR'];
     //echo ($ip_address);
     $idIp = 'Voici l\'id '.$results1[0]['usr_id'].' et l\'adresse ip '.$ip_address;
-
+    //print_r($_SESSION);
+    $Id = $results1[0]['usr_id'];
+    $_SESSION['Id'] =   $Id;
+    $_SESSION['role'] =$results2[0]['usr_role'];
   }else{
     $errorList[] = 'erreur email non reconnu';
   }

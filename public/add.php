@@ -2,6 +2,10 @@
 
 require_once __DIR__.'/../inc/config.php';
 
+if (isset($_SESSION['role']) && $_SESSION['role'] == 'user'){
+  header("Location: http://www.toto-project.dev/");
+}
+
 $sql='
   SELECT tra_id,tra_name,ses_id, ses_start_date, ses_end_date
   FROM training

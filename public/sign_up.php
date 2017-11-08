@@ -69,8 +69,8 @@ if (isset($_POST['email'],$_POST['Password1'],$_POST['Password2'])) {
     if(empty($results)){
       // requête pour formulaire ok
       $sql='
-      INSERT INTO users (`usr_email`,`usr_password`)
-      VALUES (:email, :password)
+      INSERT INTO users (`usr_email`,`usr_password`,usr_role)
+      VALUES (:email, :password, "user")
       ';
 
       //clef de cryptage
