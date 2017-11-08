@@ -73,6 +73,7 @@ if (isset($_POST['mail'],$_POST['Password'])) {
     //print_r($_SESSION);
     $Id = $results1[0]['usr_id'];
     $_SESSION['Id'] =   $Id;
+    $_SESSION['idIp'] =   $idIp;
     $_SESSION['role'] =$results2[0]['usr_role'];
   }else{
     $errorList[] = 'erreur email non reconnu';

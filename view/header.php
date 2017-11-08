@@ -59,7 +59,7 @@
       <?php endif; ?>
       <?php if(isset($_SESSION['Id'])) : ?>
       <li id="user" class="nav-item">
-        <span class="nav-link"><?= $idIp ?></span>
+        <span class="nav-link"><?= $_SESSION['idIp'] ?></span>
       <?php endif; ?>
       </li>
     <?php if(!empty($_SESSION['Id'])) : ?>
