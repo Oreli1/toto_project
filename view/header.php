@@ -19,6 +19,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
 <!-- mon CSS -->
 <link rel="stylesheet" href="css/style.css">
+<!-- script CDN : jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
+  
   </head>
   <body>
     <head>
@@ -29,12 +32,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin' && $_SESSION['role'] == 'user') : ?>
+      <?php if(isset($_SESSION['role']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'user')) : ?>
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Toutes les sessions <span class="sr-only">(current)</span></a>
       </li>
       <?php endif; ?>
-      <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin' && $_SESSION['role'] == 'user') : ?>
+      <?php if(isset($_SESSION['role']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'user')) : ?>
       <li class="nav-item">
         <a class="nav-link" href="list.php">Tous les étudiants</a>
       </li>

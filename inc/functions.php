@@ -4,14 +4,13 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-function sendEmail($to, $subject, $htmlConten, $textContent=''){
+function sendEmail($to, $subject, $htmlContent, $textContent=''){
   global $config;
   $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
   try {
     //Server settings
-    $mail->SMTPDebug = 4;                                 // Enable verbose debug output
+    //$mail->SMTPDebug = 4;                                 // Enable verbose debug output
     $mail->isSMTP();                                      // Set mailer to use SMTP
-    $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
     $mail->Host = $config['MAIL_HOST'];  // Enable SMTP authentication
     $mail->Username = $config['MAIL_USERNAME'];  // SMTP username
     $mail->Password = $config['MAIL_PASSWORD'];  // SMTP password

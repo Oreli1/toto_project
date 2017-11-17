@@ -3,8 +3,6 @@
   <span><a href="<?= $socialLinksPage->facebook->shareUrl?>">Facebook</a> | <a href="<?= $socialLinksPage->twitter->shareUrl?>">Twitter</a> | <a href="<?= $socialLinksPage->linkedin->shareUrl?>">Linkedin</a></span>
 </footer>
 
-<!-- CDN : jquery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
   <!-- CDN : script bootstrap -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
