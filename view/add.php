@@ -40,5 +40,38 @@
   	</select>
   	<br>
 
-  	<button type="submit">Envoyer</button>
+  	<button class="button_add" type="submit">Envoyer</button>
 </form>
+<div class="petitNom">
+
+</div>
+<script type="text/javascript">
+
+$('form').on('submit', function(e){
+  e.preventDefault();
+  console.log('submit');
+	$.ajax({
+	  type : 'post',
+	  url : '../public/ajax/add.php',
+	  data: $(this).serialize()
+	}).done(function(response){
+		var repOK = response;
+		if(repOK == 1){
+			$('.petitNom').html('Inscription réussie');
+			$('.petitNom').css({
+				background : 'green',
+				color : 'yellow'
+		})
+		}else{
+			$('.petitNom').html(response);
+			$('.petitNom').css({
+				background : 'red',
+				color : 'yellow'
+				})
+			}
+		});
+		//console.log(response);
+});
+
+
+</script>
