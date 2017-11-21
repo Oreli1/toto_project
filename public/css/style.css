@@ -3,3 +3,24 @@ footer {
   border: 1px solid lightgrey;
   padding: 1rem;
 }
+
+.logowf3{
+  text-align: center;
+}
+
+.form-group{
+  margin-left: 1rem;
+  margin-right: 20rem;
+}
+
+.btn-primary{
+  margin-left: 1rem;
+}
+
+.table{
+  margin-left: 1rem;
+}
+
+.btn-lg{
+  margin-bottom: 1rem;
+}
